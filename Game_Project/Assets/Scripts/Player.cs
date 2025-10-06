@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -8,7 +10,9 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
-
+    [SerializeField] private float maxHp = 100f;
+    private float currentHp;
+    [SerializeField] private Image hpBar;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,7 +22,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        currentHp = maxHp;
+        UpdateHpBar();
     }
 
     // Update is called once per frame
@@ -48,13 +53,36 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void TakeDamege()
+    public void TakeDamege(float damage)
     {
-        Die();
+        currentHp -= damage;
+        currentHp = Mathf.Max(currentHp, 0);
+        UpdateHpBar();
+        if (currentHp <= 0)
+        { 
+            Die();
+        }
+    }
+
+    public void Heal(float healValue)
+    {
+        if (currentHp < maxHp)
+        {
+            currentHp += healValue;
+            currentHp = Mathf.Min(currentHp, maxHp);
+            UpdateHpBar();
+        }
     }
 
     private void Die()
     {
         Destroy(gameObject);
+    }
+    protected void UpdateHpBar()
+    {
+        if (hpBar != null)
+        {
+            hpBar.fillAmount = currentHp / maxHp;
+        }
     }
 }
