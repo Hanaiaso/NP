@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealEnemy : Enemy
 {
     [SerializeField] private float healValue = 20f;
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (player != null)
             {
@@ -16,9 +15,9 @@ public class HealEnemy : Enemy
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (player != null)
             {
@@ -32,6 +31,7 @@ public class HealEnemy : Enemy
         HealPlayer();
         base.Die();
     }
+
     private void HealPlayer()
     {
         if (player != null)

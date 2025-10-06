@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnergyEnemy : Enemy
 {
-    [SerializeField] private GameObject energryObject;
-    private void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] private GameObject energyObject;
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (player != null)
             {
@@ -16,9 +15,9 @@ public class EnergyEnemy : Enemy
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (player != null)
             {
@@ -29,11 +28,11 @@ public class EnergyEnemy : Enemy
 
     protected override void Die()
     {
-        if (energryObject != null) { 
-            GameObject energy = Instantiate(energryObject, transform.position, Quaternion.identity);
+        if (energyObject != null)
+        {
+            GameObject energy = Instantiate(energyObject, transform.position, Quaternion.identity);
             Destroy(energy, 5f);
         }
         base.Die();
     }
-
 }
