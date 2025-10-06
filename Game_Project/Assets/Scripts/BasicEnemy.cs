@@ -8,7 +8,16 @@ public class BasicEnemy : Enemy
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Player>().TakeDamege();
+            if (player != null) {
+                player.TakeDamege(enterDamage);
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            player.TakeDamege(stayDamage);
         }
     }
 }
