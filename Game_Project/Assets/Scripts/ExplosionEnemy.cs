@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ExplosionEnemy : Enemy
 {
-    [SerializeField] private GameObject explosionPrefab; // hiệu ứng vụ nổ
+    [SerializeField] private GameObject explosionPrefab; // Hiệu ứng vụ nổ
 
     private void CreateExplosion()
     {
@@ -14,21 +12,21 @@ public class ExplosionEnemy : Enemy
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (player != null)
             {
                 player.TakeDamege(enterDamage);
             }
-            CreateExplosion(); // nổ khi chạm player
+            CreateExplosion(); // Nổ khi chạm vào Player
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (player != null)
             {
@@ -39,7 +37,7 @@ public class ExplosionEnemy : Enemy
 
     protected override void Die()
     {
-        CreateExplosion(); // nổ khi enemy chết
+        CreateExplosion(); // Nổ khi enemy chết
         base.Die();
     }
 }
