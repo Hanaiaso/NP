@@ -731,7 +731,7 @@ MonoBehaviour:
   hpBar: {fileID: 382439210}
   enterDamage: 10
   stayDamage: 1
-  explosionPrefabs: {fileID: 4381657594363737283, guid: e78d8257174c60c42b49346a2006fbb0, type: 3}
+  explosionPrefab: {fileID: 0}
 --- !u!95 &320954735
 Animator:
   serializedVersion: 5
@@ -784,7 +784,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.031877756, y: -0.08607006}
