@@ -731,7 +731,7 @@ MonoBehaviour:
   hpBar: {fileID: 382439210}
   enterDamage: 10
   stayDamage: 1
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 4381657594363737283, guid: e78d8257174c60c42b49346a2006fbb0, type: 3}
 --- !u!95 &320954735
 Animator:
   serializedVersion: 5
