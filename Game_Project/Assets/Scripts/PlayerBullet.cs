@@ -7,6 +7,7 @@ public class PlayerBullet : MonoBehaviour
     [SerializeField] private float moveSpeed = 25f;
     [SerializeField] private float timeDestroy = 0.5f;
     [SerializeField] private float damage = 10f;
+    [SerializeField] private float timeHit = 1f;
     [SerializeField] GameObject hitPrefab;
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class PlayerBullet : MonoBehaviour
             {
                 enemy.TakeDamege(damage);
                 GameObject hit=Instantiate(hitPrefab,transform.position, Quaternion.identity);
-                Destroy(hit,1f);
+                Destroy(hit,timeHit);
             }
             Destroy(gameObject);
         }
