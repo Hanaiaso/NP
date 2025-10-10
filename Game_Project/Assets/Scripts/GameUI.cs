@@ -18,6 +18,7 @@ public class GameUI : MonoBehaviour
     {
         Application.Quit();
     }
+    //game
     public void MainMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
