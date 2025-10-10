@@ -75,3 +75,6 @@ TagManager:
   - name: Trees
     uniqueID: 724857603
     locked: 0
+  - name: GameUI
+    uniqueID: 3230589301
+    locked: 0
