@@ -1,81 +1,116 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class Gun : MonoBehaviour
 {
-    private float rotateoffset=180f;
+    private float rotateoffset = 180f;
+
     [SerializeField] private Transform firePos;
     [SerializeField] private GameObject bulletPrefabs;
     [SerializeField] private float shotDelay = 0.15f;
-    private float nextShot;
     [SerializeField] private int maxAmmo = 24;
     [SerializeField] private TextMeshProUGUI ammoText;
+
+    private float nextShot;
+    [SerializeField] private float reloadTime = 3f;         
+    private float reloadTimer = 0f;        
+    private bool isReloading = false;      
+
     public int currentAmmo;
-    // Start is called before the first frame update
+
     void Start()
     {
-        currentAmmo= maxAmmo;
+        currentAmmo = maxAmmo;
         UpdateAmmoText();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Rotation();
         Shoot();
-        Reload();
+        HandleReloadHold();
     }
 
     void Rotation()
     {
-        if(Input.mousePosition.x <0 || Input.mousePosition.x > Screen.width || Input.mousePosition.y <0 || Input.mousePosition.y > Screen.height)
+        if (Input.mousePosition.x < 0 || Input.mousePosition.x > Screen.width ||
+            Input.mousePosition.y < 0 || Input.mousePosition.y > Screen.height)
         {
             return;
         }
-        Vector3 displacement= transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float angle = Mathf.Atan2 (displacement.y,displacement.x)*Mathf.Rad2Deg;
-        transform.rotation= Quaternion.Euler(0,0,angle+ rotateoffset);
-        if(angle < -90 || angle > 90)
-        {
+
+        Vector3 displacement = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float angle = Mathf.Atan2(displacement.y, displacement.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle + rotateoffset);
+
+        if (angle < -90 || angle > 90)
             transform.localScale = new Vector3(1, 1, 1);
-        }
         else
-        {
             transform.localScale = new Vector3(1, -1, 1);
-        }
     }
+
     void Shoot()
     {
-        if (Input.GetMouseButtonDown(0) && currentAmmo > 0 && Time.time > nextShot)
+        if (Input.GetMouseButtonDown(0) && currentAmmo > 0 && Time.time > nextShot && !isReloading)
         {
-            nextShot = Time.time+ shotDelay;
+            nextShot = Time.time + shotDelay;
             Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
-            currentAmmo --;
+            currentAmmo--;
             UpdateAmmoText();
         }
     }
-    void Reload()
+
+    void HandleReloadHold()
     {
-        if(Input.GetMouseButtonDown(1) && currentAmmo < maxAmmo)
+        
+        if (Input.GetMouseButton(1) && currentAmmo < maxAmmo)
         {
-            currentAmmo = maxAmmo;
-            UpdateAmmoText();
+            isReloading = true;
+            reloadTimer += Time.deltaTime;
+
+            
+            float remaining = Mathf.Clamp(reloadTime - reloadTimer, 0, reloadTime);
+            ammoText.text = $"{remaining:F1}s";
+
+            
+            if (reloadTimer >= reloadTime)
+            {
+                currentAmmo = maxAmmo;
+                reloadTimer = 0f;
+                isReloading = false;
+                UpdateAmmoText();
+            }
+        }
+
+        
+        if (Input.GetMouseButtonUp(1))
+        {
+            if (isReloading && reloadTimer < reloadTime)
+            {
+                ammoText.text = "Canceled";
+                StartCoroutine(ShowAmmoAfterCancel());
+            }
+            reloadTimer = 0f;
+            isReloading = false;
         }
     }
+
+    IEnumerator ShowAmmoAfterCancel()
+    {
+        yield return new WaitForSeconds(1f);
+        UpdateAmmoText();
+    }
+
     private void UpdateAmmoText()
     {
         if (ammoText != null)
         {
             if (currentAmmo > 0)
-            {
                 ammoText.text = currentAmmo.ToString();
-            }
             else
-            {
                 ammoText.text = "Empty";
-            }
         }
     }
 }
