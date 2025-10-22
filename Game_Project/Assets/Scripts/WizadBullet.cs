@@ -1,32 +1,48 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WizadBullet : MonoBehaviour
 {
     private Vector3 movementDirection;
-    private Transform player;
+    [SerializeField] private float bulletDamage = 10f;
+    [SerializeField] private float speed = 8f;
     void Start()
     {
-        player = FindObjectOfType<Player>()?.transform; // t�m player
-        if (player != null)
-        {
-            // t�nh h??ng t? vi�n ??n t?i player
-            movementDirection = (player.position - transform.position).normalized;
-        }
         Destroy(gameObject, 5f);
     }
 
+    // Update is called once per frame
     void Update()
     {
-        if (movementDirection != Vector3.zero)
-        {
-            transform.position += movementDirection * 10f * Time.deltaTime;
-        }
-        else { return; }
+        if (movementDirection == Vector3.zero) return;
+
+        transform.position += movementDirection * speed * Time.deltaTime;
+
+
     }
-    public void SetMovementDirection(Vector3 dir)
+
+    public void SetMovementDirection(Vector3 direction)
     {
-        movementDirection = dir;
+        movementDirection = direction;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Player player = collision.GetComponent<Player>();
+            if (player != null)
+            {
+                player.TakeDamege(bulletDamage);
+                Debug.Log("Đạn boss gây sát thương!");
+            }
+
+            Destroy(gameObject);
+        }
+    }
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
     }
 }
