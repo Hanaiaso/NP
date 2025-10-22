@@ -8,6 +8,7 @@ TagManager:
   - PlayerBullet
   - Energy
   - Explosion
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
