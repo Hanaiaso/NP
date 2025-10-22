@@ -8,6 +8,7 @@ public class GameManage : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject gamePauseMenu;
+    [SerializeField] private GameObject hud;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class GameManage : MonoBehaviour
         mainMenu.SetActive(true);
         gameOverMenu.SetActive(false);
         gamePauseMenu.SetActive(false);
+        hud.SetActive(false);
         Time.timeScale = 0f; // Pause the game
     }
     public void GameOverMenu()
@@ -25,6 +27,7 @@ public class GameManage : MonoBehaviour
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(true);
         gamePauseMenu.SetActive(false);
+        hud.SetActive(false);
         Time.timeScale = 0f; // Pause the game
     }
     public void GamePauseMenu()
@@ -32,6 +35,7 @@ public class GameManage : MonoBehaviour
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         gamePauseMenu.SetActive(true);
+        hud.SetActive(false);
         Time.timeScale = 0f; // Pause the game
     }
     public void StartGame()
@@ -39,6 +43,7 @@ public class GameManage : MonoBehaviour
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         gamePauseMenu.SetActive(false);
+        hud.SetActive(true);
         Time.timeScale = 1f; // Resume the game
     }
     public void ResumeGame()
@@ -46,6 +51,7 @@ public class GameManage : MonoBehaviour
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         gamePauseMenu.SetActive(false);
+        hud.SetActive(true);
         Time.timeScale = 1f; // Resume the game
     }
 

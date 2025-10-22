@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
 
@@ -10,10 +11,13 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
-    [SerializeField] private float maxHp = 100f;
-    private float currentHp;
+    [SerializeField] public float maxHp = 100f;
+    public float currentHp;
     [SerializeField] private Image hpBar;
     [SerializeField] private GameManage gameManage;
+    [SerializeField] private ExperienceController expController;
+    [SerializeField] private float increaseExp;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -99,5 +103,14 @@ public class Player : MonoBehaviour
         {
             hpBar.fillAmount = currentHp / maxHp;
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Energy"))
+        {
+            expController.CurrentExp += increaseExp;
+            Destroy(collision.gameObject);
+        }
+        
     }
 }
