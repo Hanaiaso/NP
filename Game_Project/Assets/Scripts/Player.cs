@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Timeline;
@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         MovePlayer();
+        FlipToMouse();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             gameManage.GamePauseMenu();
@@ -40,14 +41,7 @@ public class Player : MonoBehaviour
     {
         Vector2 playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         rb.velocity = playerInput.normalized * moveSpeed;
-        if (playerInput.x < 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else if (playerInput.x > 0)
-        {
-            spriteRenderer.flipX = false;
-        }
+        
         if (playerInput != Vector2.zero)
         {
             animator.SetBool("IsRun", true);
@@ -55,6 +49,22 @@ public class Player : MonoBehaviour
         else
         {
             animator.SetBool("IsRun", false);
+        }
+    }
+
+    void FlipToMouse()
+    {
+        // Lấy vị trí chuột theo thế giới (world space)
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        // Nếu chuột ở bên trái player → lật sang trái
+        if (mouseWorldPos.x < transform.position.x)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
         }
     }
 
