@@ -10,11 +10,11 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform firePos;
     [SerializeField] private GameObject bulletPrefabs;
     [SerializeField] private float shotDelay = 0.15f;
-    [SerializeField] private int maxAmmo = 24;
+    [SerializeField] public int maxAmmo = 24;
     [SerializeField] private TextMeshProUGUI ammoText;
     Animator myAnim;
     private float nextShot;
-    [SerializeField] private float reloadTime = 3f;         
+    [SerializeField] public float reloadTime = 3f;         
     private float reloadTimer = 0f;        
     private bool isReloading = false;      
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Runtime.CompilerServices;
 
 public class ExperienceController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class ExperienceController : MonoBehaviour
     [SerializeField] private float TargetExp;
     [SerializeField] private Image ExpProgressBar;
     [SerializeField] private Player player;
+    [SerializeField] private PlayerBullet playerBullet;
+    [SerializeField] private Gun gun;
 
 
     // Update is called once per frame
@@ -35,8 +38,10 @@ public class ExperienceController : MonoBehaviour
         {
             CurrentExp = CurrentExp-TargetExp;
             Level++;
+            playerBullet.damage += 5;
+            gun.reloadTime -= 0.1f;
             player.maxHp += 30;
-            player.currentHp=player.maxHp;
+            player.Heal(player.maxHp);
             TargetExp += 30;
         }
     }
