@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     [SerializeField] public float maxHp = 100f;
-    public float currentHp;
+    [SerializeField] public float currentHp;
     [SerializeField] private Image hpBar;
     [SerializeField] private GameManage gameManage;
     [SerializeField] private ExperienceController expController;
