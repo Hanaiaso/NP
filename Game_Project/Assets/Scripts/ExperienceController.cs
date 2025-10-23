@@ -11,6 +11,7 @@ public class ExperienceController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ExpText;
     [SerializeField] private int Level;
      public float CurrentExp;
+    [SerializeField] public float increaseDam=2f;
     [SerializeField] private float TargetExp;
     [SerializeField] private Image ExpProgressBar;
     [SerializeField] private Player player;
@@ -19,6 +20,10 @@ public class ExperienceController : MonoBehaviour
 
 
     // Update is called once per frame
+    private void Start()
+    {
+        playerBullet.damage =10;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -38,7 +43,7 @@ public class ExperienceController : MonoBehaviour
         {
             CurrentExp = CurrentExp-TargetExp;
             Level++;
-            playerBullet.damage += 5;
+            playerBullet.damage += increaseDam;
             gun.reloadTime -= 0.1f;
             player.maxHp += 30;
             player.Heal(player.maxHp);
