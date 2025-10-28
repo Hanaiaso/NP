@@ -9,6 +9,8 @@ TagManager:
   - Energy
   - Explosion
   - EnemyBullet
+  - Chest
+  - dropPoint
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Interactable
   - 
   - 
   - 
