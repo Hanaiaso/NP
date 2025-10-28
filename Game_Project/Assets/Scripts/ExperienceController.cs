@@ -19,9 +19,9 @@ public class ExperienceController : MonoBehaviour
     [SerializeField] public float increaseDam=2f;
     [SerializeField] private float TargetExp;
     [SerializeField] private Image ExpProgressBar;
-    [SerializeField] private Player player;
-    [SerializeField] private PlayerBullet playerBullet;
-    [SerializeField] private Gun gun;
+    [SerializeField] public Player player;
+    [SerializeField] public PlayerBullet playerBullet;
+    [SerializeField] public Gun gun;
 
 
     // Update is called once per frame

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 100940413941468689}
   - component: {fileID: 6631342136037111240}
   m_Layer: 0
-  m_Name: Coin
-  m_TagString: Energy
+  m_Name: H+
+  m_TagString: Hp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5ed5157cf45e6ee409511594fb89377b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.31664556, g: 0.735849, b: 0.25407612, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

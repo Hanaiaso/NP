@@ -11,6 +11,11 @@ TagManager:
   - EnemyBullet
   - Chest
   - dropPoint
+  - Hp
+  - ReloadSpeed
+  - UpdatePoint
+  - Damage
+  - ChestEn
   layers:
   - Default
   - TransparentFX
