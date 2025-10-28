@@ -159,6 +159,7 @@ MonoBehaviour:
   ItemPrefabs:
   - {fileID: 8869022568003563634, guid: 4fe2ed2034f319d44874fe1ddfb47f90, type: 3}
   - {fileID: 7773418906407678216, guid: f252f99159736e74d95dd0555b34b4ab, type: 3}
+  - {fileID: 7773418906407678216, guid: f252f99159736e74d95dd0555b34b4ab, type: 3}
   closedChest: {fileID: 21300000, guid: 351abf0ea3f717641bda51db399aeb5a, type: 3}
   openedChest: {fileID: 21300000, guid: 8c9da4ba7313f5e49a40922be2590358, type: 3}
   dropPoint: {fileID: 7960516606505419294}
