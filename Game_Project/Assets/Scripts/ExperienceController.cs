@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -53,11 +53,8 @@ public class ExperienceController : MonoBehaviour
             CurrentExp = CurrentExp-TargetExp;
             Level++;
             UpgradePoint++;
-            playerBullet.damage += increaseDam;
-            gun.reloadTime -= 0.1f;
             player.maxHp += 30;
             player.Heal(player.maxHp);
-            TargetExp += 30;
         }
     }
 }
