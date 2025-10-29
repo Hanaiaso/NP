@@ -18,6 +18,11 @@ public class Player : MonoBehaviour
     [SerializeField] private ExperienceController expController;
     [SerializeField] private float increaseExp;
 
+    public float damageBonus = 2f;
+    public float reloadReduce = 0.2f;
+    public float healAmount = 50f;
+    public float chestExpBonus = 30f;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -111,6 +116,35 @@ public class Player : MonoBehaviour
             expController.CurrentExp += increaseExp;
             Destroy(collision.gameObject);
         }
-        
+        if (collision.CompareTag("Damage"))
+        {
+            expController.playerBullet.damage += damageBonus;
+            Debug.Log("Damage increased!");
+            Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("ChestEn"))
+        {
+            expController.CurrentExp += chestExpBonus;
+            Debug.Log("Bonus EXP from chest!");
+            Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("UpdatePoint"))
+        {
+            expController.UpgradePoint += 1;
+            Debug.Log("Upgrade point +1");
+            Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("Hp"))
+        {
+            expController.player.Heal(healAmount);
+            Debug.Log("Healed +" + healAmount);
+            Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("ReloadSpeed"))
+        {
+            expController.gun.reloadTime = Mathf.Max(0.3f, expController.gun.reloadTime - reloadReduce);
+            Debug.Log("Reload speed improved!");
+            Destroy(collision.gameObject);
+        }
     }
 }

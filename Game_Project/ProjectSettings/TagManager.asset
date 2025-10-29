@@ -9,6 +9,14 @@ TagManager:
   - Energy
   - Explosion
   - EnemyBullet
+  - Chest
+  - dropPoint
+  - Hp
+  - ReloadSpeed
+  - UpdatePoint
+  - Damage
+  - ChestEn
+  - Usb
   layers:
   - Default
   - TransparentFX
@@ -16,7 +24,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Interactable
   - 
   - 
   - 
