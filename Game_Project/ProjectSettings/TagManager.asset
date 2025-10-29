@@ -16,6 +16,7 @@ TagManager:
   - UpdatePoint
   - Damage
   - ChestEn
+  - Usb
   layers:
   - Default
   - TransparentFX

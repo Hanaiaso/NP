@@ -8,6 +8,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float timeBetweenSpawns = 2f;
 
+    private bool canSpawn = true;
+
     void Start()
     {
         StartCoroutine(SpawnEnemyCoroutine());
@@ -15,13 +17,19 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemyCoroutine()
     {
-         while (true)
-         {
+        while (canSpawn)
+        {
             yield return new WaitForSeconds(timeBetweenSpawns);
+
             GameObject enemy = enemies[Random.Range(0, enemies.Length)];
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(enemy, spawnPoint.position, Quaternion.identity);
         }
     }
 
+    public void StopSpawning()
+    {
+        canSpawn = false;
+        Debug.Log("Enemy spawner stopped!");
+    }
 }
