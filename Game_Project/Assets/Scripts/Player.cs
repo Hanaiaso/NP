@@ -136,6 +136,7 @@ public class Player : MonoBehaviour
         }
         if (collision.CompareTag("Hp"))
         {
+            expController.player.maxHp += healAmount;
             expController.player.Heal(healAmount);
             Debug.Log("Healed +" + healAmount);
             Destroy(collision.gameObject);
