@@ -17,6 +17,7 @@ TagManager:
   - Damage
   - ChestEn
   - Usb
+  - BackGround
   layers:
   - Default
   - TransparentFX
