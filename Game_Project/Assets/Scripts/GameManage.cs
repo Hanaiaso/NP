@@ -10,6 +10,7 @@ public class GameManage : MonoBehaviour
     [SerializeField] private GameObject gamePauseMenu;
     [SerializeField] private GameObject hud;
     [SerializeField] private GameObject winMenu;
+    [SerializeField] private GameObject loseMenu;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class GameManage : MonoBehaviour
         gamePauseMenu.SetActive(false);
         hud.SetActive(false);
         winMenu.SetActive(false);
+        loseMenu.SetActive(false);
         Time.timeScale = 0f; // Pause the game
     }
     public void GameOverMenu()
@@ -31,6 +33,7 @@ public class GameManage : MonoBehaviour
         gamePauseMenu.SetActive(false);
         hud.SetActive(false);
         winMenu.SetActive(false);
+        loseMenu.SetActive(false);
         Time.timeScale = 0f; // Pause the game
     }
     public void GamePauseMenu()
@@ -40,6 +43,7 @@ public class GameManage : MonoBehaviour
         gamePauseMenu.SetActive(true);
         hud.SetActive(false);
         winMenu.SetActive(false);
+        loseMenu.SetActive(false);
         Time.timeScale = 0f; // Pause the game
     }
     public void StartGame()
@@ -49,6 +53,7 @@ public class GameManage : MonoBehaviour
         gamePauseMenu.SetActive(false);
         hud.SetActive(true);
         winMenu.SetActive(false);
+        loseMenu.SetActive(false);
         Time.timeScale = 1f; // Resume the game
     }
     public void ResumeGame()
@@ -58,6 +63,7 @@ public class GameManage : MonoBehaviour
         gamePauseMenu.SetActive(false);
         hud.SetActive(true);
         winMenu.SetActive(false);
+        loseMenu.SetActive(false);
         Time.timeScale = 1f; // Resume the game
     }
 
@@ -68,6 +74,17 @@ public class GameManage : MonoBehaviour
         gamePauseMenu.SetActive(false);
         hud.SetActive(false);
         winMenu.SetActive(true);
+        loseMenu.SetActive(false);
+        Time.timeScale = 0f; // Pause the game
+    }
+    public void LoseGameMenu()
+    {
+        mainMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
+        gamePauseMenu.SetActive(false);
+        hud.SetActive(false);
+        winMenu.SetActive(false);
+        loseMenu.SetActive(true);
         Time.timeScale = 0f; // Pause the game
     }
 }
