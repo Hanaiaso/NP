@@ -12,7 +12,7 @@ public class GameUI : MonoBehaviour
     }
     public void ContinueGame()
     {
-        gameManage.ResumeGame();
+        gameManage.ResumeGameplay();
     }
     public void QuitGame()
     {
