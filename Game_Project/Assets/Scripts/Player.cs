@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        gameManage.GameOverMenu();
+        gameManage.LoseGameMenu();
     }
     protected void UpdateHpBar()
     {
