@@ -85,9 +85,12 @@ TagManager:
   - name: Trees
     uniqueID: 724857603
     locked: 0
-  - name: GameUI
-    uniqueID: 3230589301
+  - name: Hud
+    uniqueID: 1713250993
     locked: 0
   - name: Shop
     uniqueID: 243175585
+    locked: 0
+  - name: GameUI
+    uniqueID: 3230589301
     locked: 0
