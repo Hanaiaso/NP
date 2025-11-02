@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Image hpBar;
     [SerializeField] private GameManage gameManage;
     [SerializeField] private ExperienceController expController;
-    [SerializeField] private float increaseExp;
+    [SerializeField] private float increaseExp=30f;
 
     public float damageBonus = 2f;
     public float reloadReduce = 0.2f;

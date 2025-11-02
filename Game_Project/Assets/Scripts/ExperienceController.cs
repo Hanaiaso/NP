@@ -37,7 +37,7 @@ public class ExperienceController : MonoBehaviour
         }
         ExpText.text = CurrentExp + " / "+ TargetExp ;
         Hp.text = player.currentHp + "/" + player.maxHp;
-        reloadTimeText.text = "Reload: "+gun.reloadTime+"s";
+        reloadTimeText.text = "Reload: "+gun.reloadTime.ToString("0.0") + "s";
         DamageText.text = "Damage: " + playerBullet.damage;
         UpgradePointText.text = "Upgrade point: " + UpgradePoint;
         ExpController();
@@ -53,6 +53,7 @@ public class ExperienceController : MonoBehaviour
             CurrentExp = CurrentExp-TargetExp;
             Level++;
             UpgradePoint++;
+            TargetExp += 30;
             player.maxHp += 30;
             player.Heal(player.maxHp);
         }
