@@ -15,6 +15,7 @@ public class ShopUpgrade : MonoBehaviour
     [SerializeField] private TextMeshProUGUI DamageText;
     [SerializeField] private TextMeshProUGUI reloadTimeText;
     [SerializeField] private TextMeshProUGUI Hp;
+    [SerializeField] private TextMeshProUGUI uPText;
     [SerializeField] private float detectRange = 2f; // khoảng cách để phát hiện player
 
     private bool playerInRange = false;
@@ -29,6 +30,7 @@ public class ShopUpgrade : MonoBehaviour
         Hp.text = "" + player.maxHp;
         reloadTimeText.text = gun.reloadTime.ToString("F1") + "s";
         DamageText.text = "" + playerBullet.damage;
+        uPText.text = "Upgrade Point: " + experienceController.UpgradePoint;
     }
 
     void Update()
@@ -42,6 +44,7 @@ public class ShopUpgrade : MonoBehaviour
         Hp.text = "" + player.maxHp;
         reloadTimeText.text = gun.reloadTime.ToString("F1") + "s";
         DamageText.text = "" + playerBullet.damage;
+        uPText.text = "Upgrade Point: " + experienceController.UpgradePoint;
 
         if (playerInRange)
         {
