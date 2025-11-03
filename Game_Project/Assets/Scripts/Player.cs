@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameManage gameManage;
     [SerializeField] private ExperienceController expController;
     [SerializeField] private float increaseExp=30f;
+    [SerializeField] private AudioManager audioManager;
 
     public float damageBonus = 2f;
     public float reloadReduce = 0.2f;
@@ -115,6 +116,7 @@ public class Player : MonoBehaviour
         {
             expController.CurrentExp += increaseExp;
             Destroy(collision.gameObject);
+            audioManager.PlayEnergySound();
         }
         if (collision.CompareTag("Damage"))
         {

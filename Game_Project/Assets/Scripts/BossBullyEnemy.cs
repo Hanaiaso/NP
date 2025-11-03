@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossBullyEnemy : Enemy
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioManager audioManager;
 
     [Header("Bắn đạn")]
     [SerializeField] private GameObject bulletPrefabs;
