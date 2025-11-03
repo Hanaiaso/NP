@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameManage gameManage;
     [SerializeField] private ExperienceController expController;
     [SerializeField] private float increaseExp=30f;
+    [SerializeField] private NotificationManager1 notificationManager;
 
     public float damageBonus = 2f;
     public float reloadReduce = 0.2f;
@@ -34,6 +35,13 @@ public class Player : MonoBehaviour
     {
         currentHp = maxHp;
         UpdateHpBar();
+        // Lắng nghe sự kiện Level Up từ ExperienceController
+        expController.OnLevelUp += HandleLevelUp;
+
+    }
+    private void HandleLevelUp(int newLevel)
+    {
+        notificationManager.ShowNotification($"Level Up! You are now Level {newLevel}!");
     }
 
     // Update is called once per frame
@@ -114,24 +122,28 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Energy"))
         {
             expController.CurrentExp += increaseExp;
+            notificationManager.ShowNotification("You picked up " + increaseExp + " EXP!");
             Destroy(collision.gameObject);
         }
         if (collision.CompareTag("Damage"))
         {
             expController.playerBullet.damage += damageBonus;
             Debug.Log("Damage increased!");
+            notificationManager.ShowNotification("Damage increased!");
             Destroy(collision.gameObject);
         }
         if (collision.CompareTag("ChestEn"))
         {
             expController.CurrentExp += chestExpBonus;
             Debug.Log("Bonus EXP from chest!");
+            notificationManager.ShowNotification("You found a bonus chest! + " + chestExpBonus + " EXP!");
             Destroy(collision.gameObject);
         }
         if (collision.CompareTag("UpdatePoint"))
         {
             expController.UpgradePoint += 1;
             Debug.Log("Upgrade point +1");
+            notificationManager.ShowNotification("Gained 1 upgrade point!");
             Destroy(collision.gameObject);
         }
         if (collision.CompareTag("Hp"))
@@ -139,13 +151,21 @@ public class Player : MonoBehaviour
             expController.player.maxHp += healAmount;
             expController.player.Heal(healAmount);
             Debug.Log("Healed +" + healAmount);
+            notificationManager.ShowNotification("Restored " + healAmount + " HP!");
             Destroy(collision.gameObject);
         }
         if (collision.CompareTag("ReloadSpeed"))
         {
             expController.gun.reloadTime = Mathf.Max(0.3f, expController.gun.reloadTime - reloadReduce);
             Debug.Log("Reload speed improved!");
+            notificationManager.ShowNotification("Reload speed increased!");
             Destroy(collision.gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (expController != null)
+            expController.OnLevelUp -= HandleLevelUp;
     }
 }
