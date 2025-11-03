@@ -470,6 +470,10 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5575488272165388424, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1468943945}
+    - target: {fileID: 5575488272165388424, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
       propertyPath: expController
       value: 
       objectReference: {fileID: 1916100925}
@@ -1842,7 +1846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &551359918
 MonoBehaviour:
   m_ObjectHideFlags: 0
