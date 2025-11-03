@@ -1,19 +1,21 @@
 ﻿using UnityEngine;
+using UnityEngine.UI; // Phải thêm cái này
 
 public class QuestItem : MonoBehaviour
 {
-    // Bạn có thể thêm ID hoặc tên vật phẩm ở đây nếu muốn
-    // public string itemID = "wallet"; 
+    [Header("Quest Item Data")]
+    public string itemID; // GÕ TÊN VÀO ĐÂY: "Hat", "Wallet", "Key"
+    public Sprite itemIcon; // KÉO ICON (Sprite) CỦA VẬT PHẨM VÀO ĐÂY
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Kiểm tra xem có phải Player va chạm không
         if (other.CompareTag("Player"))
         {
-            // Báo cho QuestManager biết vật phẩm này đã được nhặt
             if (QuestManager.instance != null)
             {
-                QuestManager.instance.CollectItem(this.gameObject);
+                // Báo cho QuestManager biết vật phẩm này đã được nhặt
+                // VÀ "đưa" icon của nó qua
+                QuestManager.instance.CollectItem(itemID, itemIcon);
             }
 
             // Tắt vật phẩm này đi (biến mất)

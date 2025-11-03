@@ -26,7 +26,7 @@ public class QuestManager : MonoBehaviour
     [Header("Quest UI")]
     public GameObject questUIPanel; // KÉO QuestUIPanel VÀO ĐÂY
     public Image[] questSlotsUI;    // KÉO 3 ô Slot1, Slot2, Slot3 VÀO ĐÂY
-    public Sprite itemCollectedIcon; // Sprite/Icon để hiển thị khi nhặt được
+    //public Sprite itemCollectedIcon; // Sprite/Icon để hiển thị khi nhặt được
     public Color itemNotCollectedColor = new Color(1, 1, 1, 0.2f); // Màu cho ô trống
     public Color itemCollectedColor = Color.white;                 // Màu cho ô đã đầy
     public RectTransform questIndicator; // Mũi tên chỉ hướng
@@ -48,18 +48,24 @@ public class QuestManager : MonoBehaviour
         if (questUIPanel != null)
             questUIPanel.SetActive(false);
 
-        // Cài đặt màu mặc định cho các ô slot
+        // Cài đặt mặc định cho các ô slot
         foreach (Image slot in questSlotsUI)
         {
             slot.sprite = null; // Xóa icon
             slot.color = itemNotCollectedColor; // Đặt màu mờ
         }
 
+        // --- NÂNG CẤP LOGIC ---
+        // Giấu tất cả vật phẩm
+        // Thay vì dùng List, chúng ta sẽ gán chúng bằng ID
         foreach (GameObject item in questItemsInWorld)
         {
             item.SetActive(false);
         }
+
+        // Đếm tổng số vật phẩm
         totalItems = questItemsInWorld.Count;
+        itemsCollected = 0; // Đảm bảo bắt đầu từ 0
     }
 
     void LateUpdate()
@@ -94,20 +100,31 @@ public class QuestManager : MonoBehaviour
         Debug.Log("QUEST BẮT ĐẦU: Tìm " + totalItems + " vật phẩm!");
     }
 
-    public void CollectItem(GameObject item)
+    // Hàm này giờ nhận ID và Icon từ vật phẩm
+    public void CollectItem(string itemID, Sprite icon)
     {
         if (currentState != QuestState.InProgress) return;
 
         // CẬP NHẬT UI SLOT
-        if (itemsCollected < questSlotsUI.Length)
+        // Logic mới: Tìm đúng ô (slot) để đặt icon vào
+        if (itemID == "Hat")
         {
-            questSlotsUI[itemsCollected].sprite = itemCollectedIcon;
-            questSlotsUI[itemsCollected].color = itemCollectedColor;
+            questSlotsUI[0].sprite = icon; // Đặt icon vào ô 1
+            questSlotsUI[0].color = itemCollectedColor;
+        }
+        else if (itemID == "Wallet")
+        {
+            questSlotsUI[1].sprite = icon; // Đặt icon vào ô 2
+            questSlotsUI[1].color = itemCollectedColor;
+        }
+        else if (itemID == "Key")
+        {
+            questSlotsUI[2].sprite = icon; // Đặt icon vào ô 3
+            questSlotsUI[2].color = itemCollectedColor;
         }
 
-        itemsCollected++;
-        questItemsInWorld.Remove(item); // Xóa khỏi danh sách cần tìm
-        Debug.Log("Đã nhặt! (" + itemsCollected + "/" + totalItems + ")");
+        itemsCollected++; // Vẫn đếm số lượng
+        Debug.Log("Đã nhặt: " + itemID + "! (" + itemsCollected + "/" + totalItems + ")");
 
         // Logic MỚI: Nếu nhặt đủ, chuyển sang "Sẵn sàng trả quest"
         if (itemsCollected >= totalItems)
