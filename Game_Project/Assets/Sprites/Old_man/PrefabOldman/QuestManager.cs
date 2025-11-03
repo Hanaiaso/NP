@@ -154,11 +154,17 @@ public class QuestManager : MonoBehaviour
     {
         Vector3 targetPosition;
 
-        // ... (phần code tìm targetPosition của bạn giữ nguyên) ...
+        // 1. TÌM MỤC TIÊU
         if (currentState == QuestState.InProgress)
         {
             GameObject closestItem = GetClosestItem();
-            if (closestItem == null) return;
+
+            // Nếu không tìm thấy vật phẩm (đã nhặt hết)
+            if (closestItem == null)
+            {
+                // Không làm gì cả, đợi cho đến khi quest chuyển sang ReadyToComplete
+                return;
+            }
             targetPosition = closestItem.transform.position;
         }
         else // (currentState == QuestState.ReadyToComplete)
@@ -167,23 +173,17 @@ public class QuestManager : MonoBehaviour
             targetPosition = oldManTransform.position;
         }
 
-        // --- BẮT ĐẦU NÂNG CẤP ---
-
-        // 1. Tính toán hướng và góc xoay
+        // 2. TÍNH TOÁN HƯỚNG
         Vector3 targetDirection = targetPosition - player.position;
+
+        // 3. XOAY MŨI TÊN (Code gốc, không làm mượt)
+        // Dùng -90f vì mũi tên của bạn chỉ LÊN TRÊN
         float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg - 90f;
-        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+        questIndicator.rotation = Quaternion.Euler(0, 0, angle);
 
-        // 2. Tính toán vị trí
-        Vector3 indicatorWorldPosition = player.position + new Vector3(0, 1.5f, 0);
-        Vector3 targetScreenPosition = mainCamera.WorldToScreenPoint(indicatorWorldPosition);
-
-        // 3. Áp dụng LERPM (Làm mượt)
-        // Dùng Slerp để xoay mượt mà
-        questIndicator.rotation = Quaternion.Slerp(questIndicator.rotation, targetRotation, Time.deltaTime * smoothSpeed);
-
-        // Dùng Lerp để di chuyển mượt mà
-        questIndicator.position = Vector3.Lerp(questIndicator.position, targetScreenPosition, Time.deltaTime * smoothSpeed);
+        // 4. ĐẶT VỊ TRÍ MŨI TÊN (Code gốc, không làm mượt)
+        Vector3 indicatorPosition = player.position + new Vector3(0, 1.5f, 0);
+        questIndicator.position = mainCamera.WorldToScreenPoint(indicatorPosition);
     }
 
     GameObject GetClosestItem()

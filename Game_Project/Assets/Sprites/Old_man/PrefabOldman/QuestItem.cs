@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI; // Phải thêm cái này
+using UnityEngine.UI;
 
 public class QuestItem : MonoBehaviour
 {
@@ -11,15 +11,18 @@ public class QuestItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (QuestManager.instance != null)
+            // --- NÂNG CẤP LOGIC ---
+            // Chỉ chạy code nếu QuestManager tồn tại VÀ quest đang diễn ra
+            if (QuestManager.instance != null &&
+                QuestManager.instance.currentState == QuestManager.QuestState.InProgress)
             {
                 // Báo cho QuestManager biết vật phẩm này đã được nhặt
-                // VÀ "đưa" icon của nó qua
                 QuestManager.instance.CollectItem(itemID, itemIcon);
-            }
 
-            // Tắt vật phẩm này đi (biến mất)
-            gameObject.SetActive(false);
+                // Tắt vật phẩm này đi (biến mất)
+                gameObject.SetActive(false);
+            }
+            // Nếu không, người chơi chỉ đi xuyên qua vật phẩm mà không có gì xảy ra
         }
     }
 }
