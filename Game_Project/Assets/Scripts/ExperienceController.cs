@@ -22,7 +22,8 @@ public class ExperienceController : MonoBehaviour
     [SerializeField] public Player player;
     [SerializeField] public PlayerBullet playerBullet;
     [SerializeField] public Gun gun;
-
+    //[SerializeField] private NotificationManager1 notificationManager;
+    public System.Action<int> OnLevelUp;  // Sự kiện thông báo khi lên cấp
 
     // Update is called once per frame
     private void Start()
@@ -56,6 +57,9 @@ public class ExperienceController : MonoBehaviour
             TargetExp += 30;
             player.maxHp += 30;
             player.Heal(player.maxHp);
+            //notificationManager.ShowNotification($"Level Up! You are now Level {Level}");
+            // Gọi sự kiện level up
+            OnLevelUp?.Invoke(Level);
         }
     }
 }
