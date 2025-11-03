@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +11,11 @@ public class BossEnemy_Khanh : Enemy
     [SerializeField] private float hpValue = 100f;
     [SerializeField] private float skillCooldown = 2f;
     private float nextSkillTime = 0f;
+
+    [Header("Rơi đồ khi chết")]
+    public GameObject[] ItemPrefabs;   // Danh sách vật phẩm rơi
+    public Transform dropPoint;        // Nơi spawn đồ (nếu null thì dùng transform boss)
+
 
     protected override void FixedUpdate()
     {
@@ -92,5 +97,41 @@ public class BossEnemy_Khanh : Enemy
         nextSkillTime = Time.time + skillCooldown;
         ChonSkillNgauNhien();
     }
+    protected override void Die()
+    {
+        base.Die();
 
+        // 💥 Rơi tất cả vật phẩm
+        DropAllItems();
+
+        // 🔥 Có thể thêm hiệu ứng nổ hoặc animation chết
+        Destroy(gameObject, 1.5f); // Xóa boss sau 1.5s
+    }
+
+    private void DropAllItems()
+    {
+        if (ItemPrefabs == null || ItemPrefabs.Length == 0) return;
+
+        Transform spawnRoot = dropPoint != null ? dropPoint : transform;
+
+        foreach (GameObject prefab in ItemPrefabs)
+        {
+            if (prefab == null) continue;
+
+            // Tạo vị trí ngẫu nhiên quanh boss
+            Vector3 randomOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0.5f, 1f), 0f);
+            Vector3 spawnPos = spawnRoot.position + randomOffset;
+
+            // Spawn từng vật phẩm
+            GameObject item = Instantiate(prefab, spawnPos, Quaternion.identity);
+
+            // Cho lực ngẫu nhiên bay ra để tản đều
+            Rigidbody2D rb = item.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                Vector2 randomForce = new Vector2(Random.Range(-2f, 2f), Random.Range(3f, 5f));
+                rb.AddForce(randomForce, ForceMode2D.Impulse);
+            }
+        }
+    }
 }
