@@ -349,7 +349,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 931192543293963900, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 931192543293963900, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
       propertyPath: m_SortingLayerID
@@ -455,10 +455,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6104198863142682640, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 104764657}
     - target: {fileID: 6426083660591381702, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7564502201504906222, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
+      propertyPath: interactText
+      value: 
+      objectReference: {fileID: 702128372}
     - target: {fileID: 8183147838131012140, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -4082,23 +4090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cf6d2cdde23c44e92f279676c6a84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1816704481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816704473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6aba5914d471b0142acd5b7f2b98d657, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactRange: 1
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  interactText: {fileID: 702128372}
 --- !u!1 &1817130801
 GameObject:
   m_ObjectHideFlags: 0
