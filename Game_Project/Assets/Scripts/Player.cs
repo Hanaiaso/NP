@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameManage gameManage;
     [SerializeField] private ExperienceController expController;
     [SerializeField] private float increaseExp=30f;
+    [SerializeField] private AudioManager audioManager;
     [SerializeField] private NotificationManager1 notificationManager;
 
     public float damageBonus = 2f;
@@ -124,6 +125,7 @@ public class Player : MonoBehaviour
             expController.CurrentExp += increaseExp;
             notificationManager.ShowNotification("You picked up " + increaseExp + " EXP!");
             Destroy(collision.gameObject);
+            audioManager.PlayEnergySound();
         }
         if (collision.CompareTag("Damage"))
         {

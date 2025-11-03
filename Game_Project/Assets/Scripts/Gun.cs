@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour
     private bool isReloading = false;      
 
     public int currentAmmo;
+    [SerializeField] private AudioManager audioManager;
 
     void Start()
     {
@@ -58,6 +59,7 @@ public class Gun : MonoBehaviour
             Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
             currentAmmo--;
             UpdateAmmoText();
+            audioManager.PlayShootSound();
         }
     }
 
@@ -80,6 +82,7 @@ public class Gun : MonoBehaviour
                 reloadTimer = 0f;
                 isReloading = false;
                 UpdateAmmoText();
+                audioManager.PlayReloadSound();
             }
         }
 

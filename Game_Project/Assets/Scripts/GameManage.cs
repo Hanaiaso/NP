@@ -16,9 +16,11 @@ public class GameManage : MonoBehaviour
     [SerializeField] private GameObject winCutsceneCanvas;    // Cutscene khi thắng
     [SerializeField] private GameObject loseCutsceneCanvas;   // Cutscene khi thua
 
+    [SerializeField] private AudioManager audioManager;
     void Start()
     {
         MainMenu();
+       
     }
 
     public void MainMenu()
@@ -34,6 +36,7 @@ public class GameManage : MonoBehaviour
         if (loseCutsceneCanvas != null) loseCutsceneCanvas.SetActive(false);
 
         Time.timeScale = 0f;
+        audioManager.StopAudioGame();
     }
 
     // 🎬 Khi nhấn Start Game
@@ -49,6 +52,7 @@ public class GameManage : MonoBehaviour
             CutsceneController cutscene = cutsceneCanvas.GetComponent<CutsceneController>();
             cutscene.onCutsceneEnd = ResumeGameplay;
             cutscene.BeginCutscene();
+            audioManager.PlayDefaultAudio();
         }
         else
         {
