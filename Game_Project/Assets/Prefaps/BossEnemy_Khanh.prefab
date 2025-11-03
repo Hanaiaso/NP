@@ -461,6 +461,7 @@ MonoBehaviour:
   hpBar: {fileID: 7769167066164968681}
   enterDamage: 10
   stayDamage: 1
+  isBoss: 1
   bulletPrefabs: {fileID: 1893883398786384325, guid: 36dce377f0be40544b4b7f1597e824c3, type: 3}
   firePoint: {fileID: 6867906344317969198}
   speedDanThuong: 15
