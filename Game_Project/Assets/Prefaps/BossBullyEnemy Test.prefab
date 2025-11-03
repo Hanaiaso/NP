@@ -36,7 +36,6 @@ Transform:
   - {fileID: 8510190860952237851}
   - {fileID: 1358304688555448520}
   - {fileID: 1358304688210955779}
-  - {fileID: 625083036327028205}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -177,7 +176,6 @@ MonoBehaviour:
   hpBar: {fileID: 2758383083362544490}
   enterDamage: 10
   stayDamage: 1
-  isBoss: 1
   animator: {fileID: 0}
   bulletPrefabs: {fileID: 4791831844076091307, guid: c55fb10871387bd4bb501d2b47a72582, type: 3}
   firePoint: {fileID: 1358304688555448520}
@@ -193,13 +191,6 @@ MonoBehaviour:
   attackCooldown: 2
   isMeleeAttacked: 0
   meleeAnimator: {fileID: 1358304688210955836}
-  ItemPrefabs:
-  - {fileID: 8869022568003563634, guid: eabc176592a3b694e8336f0fc774a62e, type: 3}
-  - {fileID: 8869022568003563634, guid: 075b918cf367ab34eb8532965ec2b8ca, type: 3}
-  - {fileID: 8869022568003563634, guid: b6f2b9d3b3d6f2945bf286ea30e54549, type: 3}
-  - {fileID: 8869022568003563634, guid: 4fe2ed2034f319d44874fe1ddfb47f90, type: 3}
-  - {fileID: 8869022568003563634, guid: 3fb4171aecd247c47b0e062068755890, type: 3}
-  dropPoint: {fileID: 625083036327028205}
 --- !u!1 &1358304688210955778
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,37 +340,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1358304687233473377}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3951912142689408288
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 625083036327028205}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &625083036327028205
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3951912142689408288}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.16, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1358304687233473377}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1358304688051669568
 PrefabInstance:

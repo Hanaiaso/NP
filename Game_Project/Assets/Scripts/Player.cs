@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        gameManage.LoseGameMenu();
+        gameManage.GameOverMenu();
     }
     protected void UpdateHpBar()
     {
