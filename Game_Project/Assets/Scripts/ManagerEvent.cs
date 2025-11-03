@@ -33,7 +33,7 @@ public class ManagerEvent : MonoBehaviour
                 case 0: // 🌑 Nightfall
                     if (nightEventPrefab != null)
                     {
-                        Debug.Log("🌑 Nightfall xuất hiện!");
+                        AnnouncementManager.Instance?.ShowMessage("Warning: Deadly darkness covers the land!");
                         NightfallEvent newNight = Instantiate(nightEventPrefab);
                         newNight.StartEvent();
                     }
@@ -46,7 +46,7 @@ public class ManagerEvent : MonoBehaviour
                 case 1: // 🔥 Heat Zone
                     if (heatZoneEventPrefab != null)
                     {
-                        Debug.Log("🔥 Heat Zone xuất hiện!");
+                        AnnouncementManager.Instance?.ShowMessage("Warning: Unusual heat detected in the area!");
                         HeatZoneEvent newZone = Instantiate(heatZoneEventPrefab);
                         StartCoroutine(newZone.StartHeatZone());
                     }
@@ -59,7 +59,7 @@ public class ManagerEvent : MonoBehaviour
                 case 2: // 🏜 Sandstorm
                     if (sandstormEventPrefab != null)
                     {
-                        Debug.Log("🏜 Bão cát xuất hiện!");
+                        AnnouncementManager.Instance?.ShowMessage("Warning: A massive sandstorm is approaching!");
                         SandstormEvent newStorm = Instantiate(sandstormEventPrefab);
                         StartCoroutine(newStorm.StartSandstorm());
                     }

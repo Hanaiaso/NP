@@ -97,6 +97,7 @@ MonoBehaviour:
   nightEnemies:
   - {fileID: 7997367752392982005, guid: c76230485a3e4774a8742b4370211fbf, type: 3}
   - {fileID: 4613997485988182388, guid: 62d58d659488a6e45ae47ec3c48d3981, type: 3}
+  - {fileID: 4613997485988182388, guid: 62d58d659488a6e45ae47ec3c48d3981, type: 3}
   spawnInterval: 1.5
   spawnRadius: 8
   minDistance: 3

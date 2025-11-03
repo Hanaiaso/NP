@@ -14,6 +14,7 @@ public class BossTriggerZone : MonoBehaviour
             Instantiate(bossPrefab, spawnPoint.position, Quaternion.identity);
             hasSpawned = true;
             audioManager.PlayBossAudio();
+            AnnouncementManager.Instance?.ShowMessage("Boss Incoming!!!");
         }
     }
 }
