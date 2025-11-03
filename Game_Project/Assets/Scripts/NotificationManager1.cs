@@ -58,9 +58,11 @@ public class NotificationManager1 : MonoBehaviour
         float fadeInTime = 0.3f;
         for (float t = 0; t < fadeInTime; t += Time.deltaTime)
         {
+            if (canvasGroup == null || notification == null) yield break;
             canvasGroup.alpha = Mathf.Lerp(0, 1, t / fadeInTime);
             yield return null;
         }
+        if (canvasGroup == null || notification == null) yield break;
         canvasGroup.alpha = 1;
 
         // Giữ trong vài giây
@@ -70,13 +72,13 @@ public class NotificationManager1 : MonoBehaviour
         float fadeOutTime = 0.5f;
         for (float t = 0; t < fadeOutTime; t += Time.deltaTime)
         {
+            if (canvasGroup == null || notification == null) yield break;
             canvasGroup.alpha = Mathf.Lerp(1, 0, t / fadeOutTime);
             yield return null;
         }
 
-        // Xóa thông báo
-        if (activeNotifications.Count > 0)
-            activeNotifications.Dequeue();
+        if (canvasGroup != null)
+            canvasGroup.alpha = 0;
 
         Destroy(notification);
     }
