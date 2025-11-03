@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float shotDelay = 0.15f;
     [SerializeField] public int maxAmmo = 24;
     [SerializeField] private TextMeshProUGUI ammoText;
+    Animator myAnim;
     private float nextShot;
     [SerializeField] public float reloadTime = 3f;         
     private float reloadTimer = 0f;        
@@ -23,6 +24,7 @@ public class Gun : MonoBehaviour
     {
         currentAmmo = maxAmmo;
         UpdateAmmoText();
+        myAnim = GetComponent<Animator>();
     }
 
     void Update()
@@ -55,9 +57,14 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && currentAmmo > 0 && Time.time > nextShot && !isReloading)
         {
             nextShot = Time.time + shotDelay;
+            myAnim.SetBool("IsShooting", true);
             Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
             currentAmmo--;
             UpdateAmmoText();
+        }
+        else
+        {
+            myAnim.SetBool("IsShooting", false);
         }
     }
 

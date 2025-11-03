@@ -326,7 +326,6 @@ MonoBehaviour:
   hpBar: {fileID: 1748852228136132707}
   enterDamage: 10
   stayDamage: 1
-  isBoss: 1
   animator: {fileID: 0}
   bulletPrefabs: {fileID: 4791831844076091307, guid: c55fb10871387bd4bb501d2b47a72582, type: 3}
   firePoint: {fileID: 3232247473613919169}
