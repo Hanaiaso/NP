@@ -165,6 +165,7 @@ MonoBehaviour:
   hpBar: {fileID: 2047915083049790528}
   enterDamage: 1
   stayDamage: 1
+  isBoss: 1
   walkSpeed: 8
   attackRange: 20
   firePoint: {fileID: 2951462823018039194}

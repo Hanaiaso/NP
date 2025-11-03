@@ -1,9 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class Enemy : MonoBehaviour
 {
+    public event Action<Enemy> OnDeath;
     [SerializeField] protected float enemyMoveSpeed = 1f;
     protected Player player;
     protected Rigidbody2D rb;
@@ -14,7 +16,7 @@ public abstract class Enemy : MonoBehaviour
 
     [SerializeField] protected float enterDamage = 10f;
     [SerializeField] protected float stayDamage = 1f;
-
+    public bool isBoss = false;
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -58,6 +60,12 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        OnDeath?.Invoke(this);
+        if (isBoss)
+        {
+            AnnouncementManager.Instance?.ShowMessage("Boss đã bị đánh bại!");
+        }
+
         Destroy(gameObject);
     }
 
