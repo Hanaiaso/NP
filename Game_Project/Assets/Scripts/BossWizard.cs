@@ -12,6 +12,7 @@ public enum FirePattern
 
 public class BossWizard : Enemy
 {
+    [SerializeField] private AudioManager audioManager;
     [Header("Animator & States")]
     private Animator anim;
     private bool isDeadLocal = false;
@@ -37,6 +38,13 @@ public class BossWizard : Enemy
 
     private float teleportTimer = 0f;
     private float fireTimer = 0f;
+
+    protected override void Start()
+    {
+        base.Start();
+        if (audioManager == null)
+            audioManager = FindObjectOfType<AudioManager>();
+    }
 
     private void Awake()
     {
@@ -237,6 +245,7 @@ public class BossWizard : Enemy
 
         // 🔥 Có thể thêm hiệu ứng nổ hoặc animation chết
         Destroy(gameObject, 1.5f); // Xóa boss sau 1.5s
+        audioManager.PlayDefaultAudio();
     }
 
     private void DropAllItems()

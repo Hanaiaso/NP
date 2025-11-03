@@ -38,6 +38,8 @@ public class BossBullyEnemy : Enemy
     {
         base.Start();
         animator = GetComponent<Animator>();
+        if (audioManager == null)
+            audioManager = FindObjectOfType<AudioManager>();
     }
 
     protected override void FixedUpdate()
@@ -93,6 +95,7 @@ public class BossBullyEnemy : Enemy
 
         // 🔥 Có thể thêm hiệu ứng nổ hoặc animation chết
         Destroy(gameObject, 1.5f); // Xóa boss sau 1.5s
+        audioManager.PlayDefaultAudio();
     }
 
     private void DropAllItems()

@@ -13,6 +13,7 @@ public class Boss_Final : Enemy
     [SerializeField] private GameObject miniEnemy;
     private float nextSkillTime = 0f;
     [SerializeField] private GameObject usbPrefabs;
+
     protected override void FixedUpdate()
     {
         base.FixedUpdate();

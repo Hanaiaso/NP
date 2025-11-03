@@ -10,13 +10,19 @@ public class BossEnemy_Khanh : Enemy
     [SerializeField] private float speedDanVongTron = 10f;
     [SerializeField] private float hpValue = 100f;
     [SerializeField] private float skillCooldown = 2f;
+    [SerializeField] private AudioManager audioManager;
     private float nextSkillTime = 0f;
 
     [Header("Rơi đồ khi chết")]
     public GameObject[] ItemPrefabs;   // Danh sách vật phẩm rơi
     public Transform dropPoint;        // Nơi spawn đồ (nếu null thì dùng transform boss)
 
-
+    protected override void Start()
+    {
+        base.Start();
+        if (audioManager == null)
+            audioManager = FindObjectOfType<AudioManager>();
+    }
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
@@ -106,6 +112,7 @@ public class BossEnemy_Khanh : Enemy
 
         // 🔥 Có thể thêm hiệu ứng nổ hoặc animation chết
         Destroy(gameObject, 1.5f); // Xóa boss sau 1.5s
+        audioManager.PlayDefaultAudio();
     }
 
     private void DropAllItems()
