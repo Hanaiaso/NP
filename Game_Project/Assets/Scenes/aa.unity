@@ -1764,7 +1764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &551359918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2759,7 +2759,7 @@ MonoBehaviour:
   nightEventPrefab: {fileID: 4272719494446073372, guid: d9103936a0fd50b4483c086b5d8c792e, type: 3}
   heatZoneEventPrefab: {fileID: 5088269659602891161, guid: 656124eb1d798f340a6e9574151b3a91, type: 3}
   sandstormEventPrefab: {fileID: 7578773774741605646, guid: 65ea7dcec8383b843adc81233b1085ef, type: 3}
-  eventInterval: 180
+  eventInterval: 40
 --- !u!4 &1199408091
 Transform:
   m_ObjectHideFlags: 0
@@ -2934,7 +2934,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1483064597}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4067,7 +4067,7 @@ RectTransform:
   - {fileID: 1582775049}
   - {fileID: 274620229}
   m_Father: {fileID: 1483064597}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

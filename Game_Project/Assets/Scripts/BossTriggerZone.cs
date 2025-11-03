@@ -12,7 +12,7 @@ public class BossTriggerZone : MonoBehaviour
         {
             Instantiate(bossPrefab, spawnPoint.position, Quaternion.identity);
             hasSpawned = true;
-            AnnouncementManager.Instance?.ShowMessage("Boss đã xuất hiện!");
+            AnnouncementManager.Instance?.ShowMessage("Boss Incoming!!!");
         }
     }
 }

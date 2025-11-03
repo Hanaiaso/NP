@@ -63,7 +63,7 @@ public abstract class Enemy : MonoBehaviour
         OnDeath?.Invoke(this);
         if (isBoss)
         {
-            AnnouncementManager.Instance?.ShowMessage("Boss đã bị đánh bại!");
+            AnnouncementManager.Instance?.ShowMessage("Boss Defeated!!!");
         }
 
         Destroy(gameObject);
