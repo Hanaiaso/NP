@@ -47,6 +47,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartConversation(Conversation conversation, GameObject player, Animator npcAnimator, bool lockPlayer)
     {
+        Time.timeScale = 0f;
         dialoguePanel.SetActive(true);
 
         currentPlayer = player;
@@ -104,6 +105,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        Time.timeScale = 1f;
         dialoguePanel.SetActive(false);
 
         // Mở khóa người chơi

@@ -4,11 +4,16 @@
 public class OldManInteraction : MonoBehaviour
 {
     [Header("Indicator")]
-    public GameObject interactCanvas;    // Cái "Press E to talk"
-    public KeyCode interactKey = KeyCode.E; // Phím E để BẮT ĐẦU
+    public GameObject interactCanvas;
+    public KeyCode interactKey = KeyCode.E;
 
     [Header("Dialogue Data")]
-    public Conversation conversation; // Nơi bạn nhập hội thoại
+    // CHÚNG TA CẦN 4 ĐOẠN HỘI THOẠI
+    public Conversation startQuestConversation;    // 1. Lời thoại GIAO QUEST (8 câu của bạn)
+    public Conversation questInProgressConversation; // 2. Lời thoại KHI ĐANG LÀM (VD: "Cháu tìm thấy chưa?")
+    public Conversation questCompletionConversation; // 3. Lời thoại TRẢ QUEST (VD: "Ôi cảm ơn cháu!")
+    public Conversation postQuestConversation;       // 4. Lời thoại SAU KHI XONG (VD: "Cảm ơn cháu lần nữa")
+
     private Animator oldManAnimator;
 
     [Header("Optional")]
@@ -19,6 +24,7 @@ public class OldManInteraction : MonoBehaviour
     private GameObject playerObject;
     private bool isTalking = false;
 
+    // ... (Hàm Start, Update, OnTriggerEnter2D, OnTriggerExit2D giữ nguyên) ...
     void Start()
     {
         if (interactCanvas != null)
@@ -31,13 +37,11 @@ public class OldManInteraction : MonoBehaviour
 
     void Update()
     {
-        // 1. Nếu player trong tầm, chưa nói, và ấn E
         if (playerInRange && Input.GetKeyDown(interactKey) && !isTalking)
         {
             StartDialogue();
         }
 
-        // 2. Reset cờ 'isTalking' khi hội thoại kết thúc
         if (isTalking &&
             DialogueManager.instance != null &&
             !DialogueManager.instance.dialoguePanel.activeInHierarchy)
@@ -75,21 +79,56 @@ public class OldManInteraction : MonoBehaviour
             }
         }
     }
+    // ... (Hàm Start, Update, OnTriggerEnter2D, OnTriggerExit2D giữ nguyên) ...
 
+
+    // HÀM QUAN TRỌNG NHẤT: STARTDIALOGUE
     private void StartDialogue()
     {
         isTalking = true;
         if (interactCanvas != null)
             interactCanvas.SetActive(false);
 
-        if (DialogueManager.instance != null)
+        // Logic MỚI: Chọn lời thoại dựa trên 4 trạng thái
+        Conversation conversationToStart = null;
+        QuestManager.QuestState currentState = QuestManager.instance.currentState;
+
+        if (currentState == QuestManager.QuestState.NotStarted)
+        {
+            conversationToStart = startQuestConversation;
+            // Kích hoạt quest ngay khi bắt đầu nói chuyện
+            QuestManager.instance.StartQuest();
+        }
+        else if (currentState == QuestManager.QuestState.InProgress)
+        {
+            conversationToStart = questInProgressConversation;
+        }
+        else if (currentState == QuestManager.QuestState.ReadyToComplete)
+        {
+            conversationToStart = questCompletionConversation;
+            // HOÀN THÀNH QUEST NGAY KHI NÓI CHUYỆN
+            QuestManager.instance.CompleteQuest();
+        }
+        else // (currentState == QuestManager.QuestState.Completed)
+        {
+            conversationToStart = postQuestConversation;
+        }
+
+
+        // Bắt đầu hội thoại
+        if (DialogueManager.instance != null && conversationToStart != null)
         {
             DialogueManager.instance.StartConversation(
-                conversation,
+                conversationToStart,
                 playerObject,
                 oldManAnimator,
                 shouldLockPlayerWhileTalking
             );
+        }
+        else
+        {
+            Debug.LogError("Không tìm thấy DialogueManager hoặc Conversation trống!");
+            isTalking = false;
         }
     }
 }
