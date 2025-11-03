@@ -7,7 +7,7 @@ public class SandstormEvent : MonoBehaviour
     public ParticleSystem sandstormEffect;  // Hiệu ứng bụi bay
     public Image fogOverlay;                // Ảnh mờ phủ màn hình (UI Image)
     public float duration = 25f;
-    public float slowMultiplier = 0.6f;
+    public float slowMultiplier = 0.4f;
 
     private Player player;
 

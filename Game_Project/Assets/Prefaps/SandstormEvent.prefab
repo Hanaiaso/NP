@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7578773774523339906}
   - component: {fileID: 7578773774523339907}
   - component: {fileID: 7578773774523339904}
-  m_Layer: 4
+  m_Layer: 5
   m_Name: SandstormEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4779,8 +4779,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1064377995
-  m_SortingLayer: 2
+  m_SortingLayerID: 243175585
+  m_SortingLayer: 4
   m_SortingOrder: -1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4861,7 +4861,7 @@ MonoBehaviour:
   sandstormEffect: {fileID: 7578773774523339907}
   fogOverlay: {fileID: 7578773775366705830}
   duration: 25
-  slowMultiplier: 0.6
+  slowMultiplier: 0.4
 --- !u!1 &7578773775366705831
 GameObject:
   m_ObjectHideFlags: 0

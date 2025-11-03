@@ -34,9 +34,6 @@ public class AnnouncementManager : MonoBehaviour
             messageText.alpha = 0f; // ẩn text lúc đầu
     }
 
-    /// <summary>
-    /// Gọi hàm này ở bất cứ đâu để hiển thị thông báo.
-    /// </summary>
     public void ShowMessage(string msg)
     {
         if (string.IsNullOrWhiteSpace(msg)) return;
