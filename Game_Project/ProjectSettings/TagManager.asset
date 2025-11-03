@@ -9,6 +9,15 @@ TagManager:
   - Energy
   - Explosion
   - EnemyBullet
+  - Chest
+  - dropPoint
+  - Hp
+  - ReloadSpeed
+  - UpdatePoint
+  - Damage
+  - ChestEn
+  - Usb
+  - BackGround
   layers:
   - Default
   - TransparentFX
@@ -16,7 +25,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Interactable
   - 
   - 
   - 
@@ -75,6 +84,15 @@ TagManager:
     locked: 0
   - name: Trees
     uniqueID: 724857603
+    locked: 0
+  - name: Chest
+    uniqueID: 1285247577
+    locked: 0
+  - name: Hud
+    uniqueID: 1713250993
+    locked: 0
+  - name: Shop
+    uniqueID: 243175585
     locked: 0
   - name: GameUI
     uniqueID: 3230589301
