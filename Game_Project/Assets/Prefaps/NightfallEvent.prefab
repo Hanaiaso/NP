@@ -116,6 +116,10 @@ PrefabInstance:
       propertyPath: nightSpawner
       value: 
       objectReference: {fileID: 4272719496397749802}
+    - target: {fileID: 89844952068864919, guid: fafdd37376aeb274f81486a425a4b798, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 89844952957856840, guid: fafdd37376aeb274f81486a425a4b798, type: 3}
       propertyPath: m_Name
       value: NightfallUI

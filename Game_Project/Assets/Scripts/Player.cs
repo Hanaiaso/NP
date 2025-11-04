@@ -109,8 +109,13 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        Debug.Log(" Người chơi đã chết!");
+        ManagerEvent manager = FindObjectOfType<ManagerEvent>();
+        if (manager != null)
+            manager.StopAllEvents();
         gameManage.LoseGameMenu();
     }
+
     protected void UpdateHpBar()
     {
         if (hpBar != null)
