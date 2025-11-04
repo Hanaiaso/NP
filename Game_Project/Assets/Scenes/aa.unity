@@ -551,6 +551,10 @@ PrefabInstance:
       value: 100000000
       objectReference: {fileID: 0}
     - target: {fileID: 5575488272165388424, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
+      propertyPath: moveSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575488272165388424, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
       propertyPath: gameManage
       value: 
       objectReference: {fileID: 104764657}
@@ -734,6 +738,10 @@ PrefabInstance:
     - target: {fileID: 6088405372141017593, guid: 539a30d45dd8c2d49a7fe4b3a25a37f0, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088405372698986105, guid: 539a30d45dd8c2d49a7fe4b3a25a37f0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6088405372698986110, guid: 539a30d45dd8c2d49a7fe4b3a25a37f0, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6612,7 +6620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8454279810586001106, guid: 01556d1856624404bbce38895e506e56, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -6.0000305
+      value: -6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01556d1856624404bbce38895e506e56, type: 3}
