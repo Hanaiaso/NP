@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMoveSpeed: 1
-  maxHp: 500
+  maxHp: 3000
   hpBar: {fileID: 7769167066164968681}
   enterDamage: 10
   stayDamage: 1
@@ -469,6 +469,7 @@ MonoBehaviour:
   speedDanVongTron: 10
   hpValue: 100
   skillCooldown: 2
+  audioManager: {fileID: 0}
   ItemPrefabs:
   - {fileID: 8869022568003563634, guid: eabc176592a3b694e8336f0fc774a62e, type: 3}
   - {fileID: 8869022568003563634, guid: 075b918cf367ab34eb8532965ec2b8ca, type: 3}

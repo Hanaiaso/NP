@@ -4861,7 +4861,7 @@ MonoBehaviour:
   sandstormEffect: {fileID: 7578773774523339907}
   fogOverlay: {fileID: 7578773775366705830}
   duration: 25
-  slowMultiplier: 0.4
+  slowMultiplier: 0.6
 --- !u!1 &7578773775366705831
 GameObject:
   m_ObjectHideFlags: 0
