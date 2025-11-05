@@ -8,6 +8,7 @@ public class Open : MonoBehaviour
     public Sprite openedChest;       // Sprite khi rương mở
     public Transform dropPoint;      // Nơi vật phẩm xuất hiện (có thể là transform con)
     [HideInInspector] public bool isOpened = false;
+    private AudioManager audioManager;
 
     private SpriteRenderer sr;
     private bool isPlayerNearby = false;
@@ -16,6 +17,8 @@ public class Open : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = closedChest;
+
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -29,6 +32,15 @@ public class Open : MonoBehaviour
     public void OpenChest() // public để PlayerInteract có thể gọi
     {
         if (isOpened) return;
+
+        if (audioManager != null)
+        {
+            audioManager.EventChestOpen(); // Phát tiếng mở rương
+        }
+        else
+        {
+            Debug.LogWarning("Không tìm thấy AudioManager trong Scene!");
+        }
 
         isOpened = true;
         sr.sprite = openedChest;
