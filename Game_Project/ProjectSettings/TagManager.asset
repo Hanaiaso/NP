@@ -18,6 +18,9 @@ TagManager:
   - ChestEn
   - Usb
   - BackGround
+  - GoldGun
+  - SilverGun
+  - Gun
   layers:
   - Default
   - TransparentFX

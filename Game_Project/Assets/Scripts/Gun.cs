@@ -15,7 +15,8 @@ public class Gun : MonoBehaviour
     private float nextShot;
     [SerializeField] public float reloadTime = 3f;         
     private float reloadTimer = 0f;        
-    private bool isReloading = false;      
+    private bool isReloading = false;
+    [SerializeField] private float spreadAngle = 15f;
 
     public int currentAmmo;
     [SerializeField] private AudioManager audioManager;
@@ -56,8 +57,27 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && currentAmmo > 0 && Time.time > nextShot && !isReloading)
         {
             nextShot = Time.time + shotDelay;
+
             Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
-            currentAmmo--;
+
+            Quaternion leftRotation = firePos.rotation * Quaternion.Euler(0, 0, spreadAngle);
+            Quaternion rightRotation = firePos.rotation * Quaternion.Euler(0, 0, -spreadAngle);
+
+            if (gameObject.CompareTag("GoldGun"))
+            {
+                currentAmmo -= 3;
+                Instantiate(bulletPrefabs, firePos.position, leftRotation);
+                Instantiate(bulletPrefabs, firePos.position, rightRotation);
+            }
+            else if (gameObject.CompareTag("SilverGun"))
+            {
+                currentAmmo -= 2;
+                Instantiate(bulletPrefabs, firePos.position, leftRotation);
+            }
+            else
+            {
+                currentAmmo--;
+            }
             UpdateAmmoText();
             audioManager.PlayShootSound();
         }

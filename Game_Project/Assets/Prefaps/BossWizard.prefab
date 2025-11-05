@@ -167,6 +167,7 @@ MonoBehaviour:
   enterDamage: 1
   stayDamage: 1
   isBoss: 1
+  audioManager: {fileID: 0}
   walkSpeed: 8
   attackRange: 20
   firePoint: {fileID: 2951462823018039194}
@@ -184,6 +185,7 @@ MonoBehaviour:
   - {fileID: 8869022568003563634, guid: b6f2b9d3b3d6f2945bf286ea30e54549, type: 3}
   - {fileID: 8869022568003563634, guid: 4fe2ed2034f319d44874fe1ddfb47f90, type: 3}
   - {fileID: 8869022568003563634, guid: 3fb4171aecd247c47b0e062068755890, type: 3}
+  - {fileID: 7478384300983884640, guid: ae62c9eca3f496c479254c058ad7fe5c, type: 3}
   dropPoint: {fileID: 3859180743370497442}
 --- !u!1 &2951462823018039193
 GameObject:
