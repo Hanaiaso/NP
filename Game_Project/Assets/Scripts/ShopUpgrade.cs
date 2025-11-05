@@ -17,7 +17,7 @@ public class ShopUpgrade : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Hp;
     [SerializeField] private TextMeshProUGUI uPText;
     [SerializeField] private float detectRange = 2f; // khoảng cách để phát hiện player
-
+    [SerializeField] private AudioManager audioManager;
     private bool playerInRange = false;
     private Transform playerTransform;
 
@@ -67,6 +67,7 @@ public class ShopUpgrade : MonoBehaviour
     {
         if (shopUIPanel != null)
         {
+            if (audioManager != null) audioManager.PlayShopOpenSound();
             shopUIPanel.SetActive(true);
             Time.timeScale = 0f;
         }
@@ -87,6 +88,7 @@ public class ShopUpgrade : MonoBehaviour
     {
         if (experienceController.UpgradePoint > 0)
         {
+            if (audioManager != null) audioManager.PlayUpgradeSound();
             playerBullet.damage += 2;
             experienceController.UpgradePoint--;
         }
@@ -97,6 +99,7 @@ public class ShopUpgrade : MonoBehaviour
     {
         if (experienceController.UpgradePoint > 0)
         {
+            if (audioManager != null) audioManager.PlayUpgradeSound();
             if (gun.reloadTime > 0.5f)
                 gun.reloadTime -= 0.1f;
 

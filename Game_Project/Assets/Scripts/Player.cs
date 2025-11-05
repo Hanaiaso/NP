@@ -43,6 +43,14 @@ public class Player : MonoBehaviour
     private void HandleLevelUp(int newLevel)
     {
         notificationManager.ShowNotification($"Level Up! You are now Level {newLevel}!");
+        if (audioManager != null)
+        {
+            audioManager.LevelUp();
+        }
+        else
+        {
+            Debug.LogWarning("AudioManager chưa được gán trên Player!");
+        }
     }
 
     // Update is called once per frame
