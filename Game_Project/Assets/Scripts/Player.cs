@@ -20,10 +20,10 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private NotificationManager1 notificationManager;
 
-    public float damageBonus = 2f;
-    public float reloadReduce = 0.2f;
-    public float healAmount = 50f;
-    public float chestExpBonus = 30f;
+    public float damageBonus = 5f;
+    public float reloadReduce = 0.4f;
+    public float healAmount = 80f;
+    public float chestExpBonus = 100f;
 
     private void Awake()
     {
@@ -109,6 +109,20 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        Debug.Log(" Người chơi đã chết!");
+        OldManInteraction oldMan = FindObjectOfType<OldManInteraction>();
+        if (oldMan != null)
+        {
+            oldMan.OnPlayerDeath();
+        }
+        // Dừng nhiệm vụ hiện tại
+        QuestManager quest = FindObjectOfType<QuestManager>();
+        if (quest != null)
+            quest.OnPlayerDeath();
+
+        ManagerEvent manager = FindObjectOfType<ManagerEvent>();
+        if (manager != null)
+            manager.StopAllEvents();
         gameManage.LoseGameMenu();
     }
     protected void UpdateHpBar()

@@ -6,6 +6,8 @@ public class OldManInteraction : MonoBehaviour
     [Header("Indicator")]
     public GameObject interactCanvas;
     public KeyCode interactKey = KeyCode.E;
+    private bool playerIsDead = false;
+
 
     [Header("Dialogue Data")]
     // CHÚNG TA CẦN 4 ĐOẠN HỘI THOẠI
@@ -184,4 +186,25 @@ public class OldManInteraction : MonoBehaviour
             Instantiate(chestPrefab, spawnPosition, Quaternion.identity);
         }
     }
+
+    public void OnPlayerDeath()
+    {
+        if (playerIsDead) return; // tránh gọi nhiều lần
+        playerIsDead = true;
+
+        Debug.Log("💀 Người chơi đã chết! Dừng toàn bộ sự kiện...");
+
+        // Tìm và dừng tất cả các sự kiện đang chạy
+        ManagerEvent manager = FindObjectOfType<ManagerEvent>();
+        if (manager != null)
+        {
+            manager.StopAllEvents();
+        }
+
+        // Nếu bạn muốn ông lão ngừng tương tác luôn:
+        playerInRange = false;
+        if (interactCanvas != null)
+            interactCanvas.SetActive(false);
+    }
+
 }
