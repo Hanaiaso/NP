@@ -134,17 +134,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5128439703493095672, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5128439705153994756, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
       propertyPath: m_RootOrder
       value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 5128439705153994756, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 88.11
+      value: 85.8
       objectReference: {fileID: 0}
     - target: {fileID: 5128439705153994756, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -29.34
+      value: -11.6
       objectReference: {fileID: 0}
     - target: {fileID: 5128439705153994756, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -187,12 +191,61 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
+      propertyPath: startQuestConversation.lines.Array.data[0].text
+      value: Hey young man!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
+      propertyPath: startQuestConversation.lines.Array.data[1].text
+      value: What's up sir?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
+      propertyPath: startQuestConversation.lines.Array.data[2].text
+      value: On the way here, I dropped some things.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
+      propertyPath: startQuestConversation.lines.Array.data[3].text
+      value: What did you drop?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
+      propertyPath: startQuestConversation.lines.Array.data[4].text
+      value: Wallet, hat, ......... and house keys. Did you see them when you passed
+        by?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
+      propertyPath: startQuestConversation.lines.Array.data[5].text
+      value: I don't see, but if you need them, I will help you find them.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
+      propertyPath: startQuestConversation.lines.Array.data[6].text
+      value: Thank you, you are such a good boy.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
+      propertyPath: startQuestConversation.lines.Array.data[7].text
+      value: Please stand here and wait for me.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
+      propertyPath: questCompletionConversation.lines.Array.data[0].text
+      value: Oh you found enough! Thank you very much!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
+      propertyPath: questCompletionConversation.lines.Array.data[1].text
+      value: What a good boy!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
       propertyPath: questCompletionConversation.lines.Array.data[2].text
-      value: "\xD4ng c\xF3 ch\xFAt qu\xE0 g\u1EEDi t\u1EB7ng ch\xE1u!"
+      value: I have a little gift for you!
       objectReference: {fileID: 0}
     - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
       propertyPath: questCompletionConversation.lines.Array.data[3].text
-      value: "C\u1EA3m \u01A1n ch\xE1u l\u1EA7n n\u1EEFa nh\xE9!"
+      value: Thanks again!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
+      propertyPath: questInProgressConversation.lines.Array.data[0].text
+      value: Did you find it?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
+      propertyPath: questInProgressConversation.lines.Array.data[1].text
+      value: My stuff must have fallen somewhere near the road you came from.
       objectReference: {fileID: 0}
     - target: {fileID: 5128439705153994759, guid: 222eb4f53d5e1dc47812e7da46efc4f6, type: 3}
       propertyPath: questCompletionConversation.lines.Array.data[2].portrait
@@ -339,7 +392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &108548191
 Rigidbody2D:
   serializedVersion: 4
@@ -548,7 +601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5575488272165388424, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
       propertyPath: maxHp
-      value: 100000000
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5575488272165388424, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
       propertyPath: moveSpeed
@@ -584,11 +637,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5575488272165388428, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.1
+      value: -13.67
       objectReference: {fileID: 0}
     - target: {fileID: 5575488272165388428, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.4
+      value: 1.81
       objectReference: {fileID: 0}
     - target: {fileID: 5575488272165388428, guid: 792155bfe0d269544abaf19812f2d64b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -750,6 +803,34 @@ PrefabInstance:
     - target: {fileID: 6088405372698986110, guid: 539a30d45dd8c2d49a7fe4b3a25a37f0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -464
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088405372868567078, guid: 539a30d45dd8c2d49a7fe4b3a25a37f0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088405373091603210, guid: 539a30d45dd8c2d49a7fe4b3a25a37f0, type: 3}
+      propertyPath: m_margin.w
+      value: 142.04446
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088405373091603210, guid: 539a30d45dd8c2d49a7fe4b3a25a37f0, type: 3}
+      propertyPath: m_margin.x
+      value: 256.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088405373091603210, guid: 539a30d45dd8c2d49a7fe4b3a25a37f0, type: 3}
+      propertyPath: m_margin.y
+      value: -260.70346
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088405373091603210, guid: 539a30d45dd8c2d49a7fe4b3a25a37f0, type: 3}
+      propertyPath: m_margin.z
+      value: 78.293945
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088405373232704932, guid: 539a30d45dd8c2d49a7fe4b3a25a37f0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 148
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088405373232704932, guid: 539a30d45dd8c2d49a7fe4b3a25a37f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 109
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 539a30d45dd8c2d49a7fe4b3a25a37f0, type: 3}
@@ -1391,7 +1472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &320954734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2179,7 +2260,7 @@ MonoBehaviour:
   - {fileID: 1081445828}
   - {fileID: 1817130802}
   - {fileID: 1203055255}
-  timeBetweenSpawns: 1
+  timeBetweenSpawns: 1.5
 --- !u!4 &551359919
 Transform:
   m_ObjectHideFlags: 0
@@ -2587,7 +2668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &709203057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4775,11 +4856,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ending\r\nC\u1EA3m \u01A1n m\u1ECDi ng\u01B0\u1EDDi \u0111\xE3 c\u1ED1ng
-    hi\u1EBFn th\u1EDDi gian cho game\r\nMade by Huy,Kh\u1EA3i,Kh\xE1nh,D\u0169ng,Tuy\xEAn,Mai
-    Linh\r\nProgrammer: Huy,Kh\u1EA3i,Kh\xE1nh,D\u0169ng,Tuy\xEAn,Mai Linh\r\nGame
-    \u0111ang \u1EDF version0.01 c\u1EA3m \u01A1n m\u1ECDi ng\u01B0\u1EDDi \u0111\xE3
-    ch\u01A1i \U0001F60A\r\n"
+  m_text: "Ending\r\nThank you everyone for dedicating your time to the game\r\nMade
+    by Huy,Khai,Khanh,Dung,Tuyen,Mai Linh\r\nProgrammer: Huy,Khai,Khanh,Dung,Tuyen,Mai
+    Linh\r\nThank you everyone for playing \U0001F60A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6027,8 +6106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Kh\xF4ng l\xE0m xong nhi\u1EC7m v\u1EE5 trong th\u1EDDi gian quy \u0111\u1ECBnh,
-    b\u1EA1n \u0111\xE3 thua!"
+  m_text: If you don't complete the mission within the time limit, you lose!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6118,7 +6196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1651306125819013430, guid: 18033762dc6e66b469b7daebe3398c46, type: 3}
       propertyPath: timeLimit
-      value: 100
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 1651306125819013430, guid: 18033762dc6e66b469b7daebe3398c46, type: 3}
       propertyPath: timerText
@@ -6307,6 +6385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopUpgrade2_0
       objectReference: {fileID: 0}
+    - target: {fileID: 6169346582040274498, guid: 09b80abfaf1a3914881fbc991b887fcd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6169346582040274520, guid: 09b80abfaf1a3914881fbc991b887fcd, type: 3}
       propertyPath: gun
       value: 
@@ -6375,10 +6457,22 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6169346582672896365, guid: 09b80abfaf1a3914881fbc991b887fcd, type: 3}
+      propertyPath: m_text
+      value: Press B to open shop
+      objectReference: {fileID: 0}
     - target: {fileID: 6169346583158346370, guid: 09b80abfaf1a3914881fbc991b887fcd, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 305159033}
+    - target: {fileID: 6169346583158346375, guid: 09b80abfaf1a3914881fbc991b887fcd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6169346583452404002, guid: 09b80abfaf1a3914881fbc991b887fcd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6169346583452404030, guid: 09b80abfaf1a3914881fbc991b887fcd, type: 3}
       propertyPath: m_Camera
       value: 
@@ -6443,7 +6537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7997367752392982005, guid: c76230485a3e4774a8742b4370211fbf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c76230485a3e4774a8742b4370211fbf, type: 3}
@@ -6473,6 +6567,10 @@ PrefabInstance:
     - target: {fileID: 8454279809153187954, guid: 01556d1856624404bbce38895e506e56, type: 3}
       propertyPath: m_Name
       value: GameUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454279809153187954, guid: 01556d1856624404bbce38895e506e56, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8454279809153187957, guid: 01556d1856624404bbce38895e506e56, type: 3}
       propertyPath: gameManage
