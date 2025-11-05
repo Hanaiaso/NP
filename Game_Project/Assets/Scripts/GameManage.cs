@@ -93,7 +93,19 @@ public class GameManage : MonoBehaviour
         hud.SetActive(false);
         winMenu.SetActive(false);
         loseMenu.SetActive(false);
+        OldManInteraction oldMan = FindObjectOfType<OldManInteraction>();
+        if (oldMan != null)
+        {
+            oldMan.OnPlayerDeath();
+        }
+        // Dừng nhiệm vụ hiện tại
+        QuestManager quest = FindObjectOfType<QuestManager>();
+        if (quest != null)
+            quest.OnPlayerDeath();
 
+        ManagerEvent manager = FindObjectOfType<ManagerEvent>();
+        if (manager != null)
+            manager.StopAllEvents();
         if (winCutsceneCanvas != null)
         {
             winCutsceneCanvas.SetActive(true);
