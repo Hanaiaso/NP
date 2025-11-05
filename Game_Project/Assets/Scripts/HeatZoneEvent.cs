@@ -8,7 +8,7 @@ public class HeatZoneEvent : MonoBehaviour
     public float damagePerSecond = 10f;     // Sát thương mỗi giây
     public SpriteRenderer heatVisual;      // Hiệu ứng vùng nóng (Sprite hoặc vòng lửa)
     public float radius = 2f;              // Bán kính vùng nóng (để dễ điều chỉnh)
-
+    private float damageTimer = 0f;
     private bool active = false;
 
     // 👉 Hàm này sẽ được gọi từ TestNightfall (hoặc bất kỳ script nào)
@@ -48,7 +48,6 @@ public class HeatZoneEvent : MonoBehaviour
             yield return null;
         }
 
-        // 6️⃣ Tắt vùng nóng
         active = false;
         if (heatVisual != null)
         {
@@ -65,32 +64,36 @@ public class HeatZoneEvent : MonoBehaviour
     {
         if (!active) return;
 
-        // 7️⃣ Nếu va chạm với Player
-        if (other.CompareTag("Player"))
-        {
-            Player p = other.GetComponent<Player>();
-            if (p != null)
-            {
-                p.TakeDamege(damagePerSecond * Time.deltaTime);
-                Debug.Log("🔥 Gây sát thương cho Player");
-            }
-        }
+        if (!active) return;
 
-        // 8️⃣ Nếu va chạm với Enemy
-        if (other.CompareTag("Enemy"))
+        damageTimer += Time.deltaTime;
+        if (damageTimer >= 1f)
         {
-            Enemy e = other.GetComponent<Enemy>();
-            if (e != null)
+            damageTimer = 0f; // reset mỗi giây
+
+            if (other.CompareTag("Player"))
             {
-                e.TakeDamege(damagePerSecond * Time.deltaTime);
-                Debug.Log($"🔥 Gây sát thương cho Enemy {e.name}");
+                Player p = other.GetComponent<Player>();
+                if (p != null)
+                {
+                    p.TakeDamege((int)damagePerSecond);
+                    Debug.Log("🔥 Gây sát thương nguyên cho Player");
+                }
+            }
+
+            if (other.CompareTag("Enemy"))
+            {
+                Enemy e = other.GetComponent<Enemy>();
+                if (e != null)
+                {
+                    e.TakeDamege((int)damagePerSecond);
+                    Debug.Log($"🔥 Gây sát thương nguyên cho Enemy {e.name}");
+                }
             }
         }
     }
-
     private void OnDrawGizmosSelected()
     {
-        // Vẽ vòng tròn vùng nóng trong Scene view (để dễ căn chỉnh)
         Gizmos.color = new Color(1f, 0.5f, 0f, 0.3f);
         Gizmos.DrawSphere(transform.position, radius);
     }

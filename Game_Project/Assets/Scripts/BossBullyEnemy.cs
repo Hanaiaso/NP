@@ -15,7 +15,7 @@ public class BossBullyEnemy : Enemy
     private float lastShootTime = 0f;
 
     [Header("Hồi máu")]
-    [SerializeField] private float hpValue = 100f;
+   // [SerializeField] private float hpValue = 100f;
 
     [Header("Đánh thường")]
     [SerializeField] private Transform meleePoint;

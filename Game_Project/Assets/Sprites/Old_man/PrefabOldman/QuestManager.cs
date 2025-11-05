@@ -205,4 +205,38 @@ public class QuestManager : MonoBehaviour
         }
         return bestTarget;
     }
+
+    // --- 🩸 Hàm được gọi khi người chơi chết ---
+    public void OnPlayerDeath()
+    {
+        Debug.Log("💀 Người chơi đã chết, dừng toàn bộ nhiệm vụ và ẩn vật phẩm.");
+
+        // 1️⃣ Ẩn toàn bộ vật phẩm nhiệm vụ
+        foreach (GameObject item in questItemsInWorld)
+        {
+            if (item != null)
+                item.SetActive(false);
+        }
+
+        // 2️⃣ Ẩn giao diện nhiệm vụ
+        if (questIndicator != null)
+            questIndicator.gameObject.SetActive(false);
+
+        if (questUIPanel != null)
+            questUIPanel.SetActive(false);
+
+        // 3️⃣ Reset trạng thái nhiệm vụ
+        currentState = QuestState.NotStarted;
+        itemsCollected = 0;
+
+        // 4️⃣ Làm mờ lại các ô slot UI
+        foreach (Image slot in questSlotsUI)
+        {
+            slot.sprite = null;
+            slot.color = itemNotCollectedColor;
+        }
+
+        Debug.Log("🛑 Quest đã bị reset do người chơi chết.");
+    }
+
 }
