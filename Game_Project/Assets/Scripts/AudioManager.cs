@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource bosstAudioSource;
     //[SerializeField] private AudioClip EventExplosionSource;
     [SerializeField] private AudioClip shopOpenClip;
+   
     [SerializeField] private AudioClip upgradeHeathClip;
     [SerializeField] private AudioClip upgradeClickClip;
     public void PlayShootSound()
@@ -58,6 +59,12 @@ public class AudioManager : MonoBehaviour
     public void PlayUpgradeSound()
     {
         
+        effectAudioSource.PlayOneShot(upgradeClickClip);
+    }
+
+    public void HeartZoneSound()
+    {
+
         effectAudioSource.PlayOneShot(upgradeClickClip);
     }
     public void PlayUpgradeHeath()
