@@ -1055,11 +1055,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1064868699741875924, guid: 0b103821379e378489c8325328690f8b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 327.52
+      value: 328.03
       objectReference: {fileID: 0}
     - target: {fileID: 1064868699741875924, guid: 0b103821379e378489c8325328690f8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 181.62
+      value: 181.29
       objectReference: {fileID: 0}
     - target: {fileID: 1064868699741875926, guid: 0b103821379e378489c8325328690f8b, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -1072,6 +1072,26 @@ PrefabInstance:
     - target: {fileID: 1064868699741875927, guid: 0b103821379e378489c8325328690f8b, type: 3}
       propertyPath: m_SortingLayerID
       value: -1064377995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064868699921048955, guid: 0b103821379e378489c8325328690f8b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.88263655
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064868699921048955, guid: 0b103821379e378489c8325328690f8b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.88263655
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064868699921048955, guid: 0b103821379e378489c8325328690f8b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.88263655
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064868699921048955, guid: 0b103821379e378489c8325328690f8b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -208.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064868699921048955, guid: 0b103821379e378489c8325328690f8b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 114.89
       objectReference: {fileID: 0}
     - target: {fileID: 1064868699921048958, guid: 0b103821379e378489c8325328690f8b, type: 3}
       propertyPath: gun

@@ -48,7 +48,7 @@ public class GameManage : MonoBehaviour
         if (cutsceneCanvas != null)
         {
             cutsceneCanvas.SetActive(true);
-            Time.timeScale = 0f; // Cho phép cutscene chạy
+            Time.timeScale = 0f;
             CutsceneController cutscene = cutsceneCanvas.GetComponent<CutsceneController>();
             cutscene.onCutsceneEnd = ResumeGameplay;
             cutscene.BeginCutscene();

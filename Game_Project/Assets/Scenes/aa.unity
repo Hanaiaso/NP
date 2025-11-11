@@ -3287,7 +3287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6236245976306982443, guid: 6aafa3dd49d975d4aa299fde1a31174a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -315.39005
+      value: -315.39
       objectReference: {fileID: 0}
     - target: {fileID: 6236245976306982443, guid: 6aafa3dd49d975d4aa299fde1a31174a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3796,7 +3796,7 @@ MonoBehaviour:
   nightEventPrefab: {fileID: 4272719494446073372, guid: d9103936a0fd50b4483c086b5d8c792e, type: 3}
   heatZoneEventPrefab: {fileID: 5088269659602891161, guid: 656124eb1d798f340a6e9574151b3a91, type: 3}
   sandstormEventPrefab: {fileID: 7578773774741605646, guid: 65ea7dcec8383b843adc81233b1085ef, type: 3}
-  eventInterval: 40
+  eventInterval: 60
 --- !u!4 &1199408091
 Transform:
   m_ObjectHideFlags: 0
@@ -5626,6 +5626,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5497874176799042760, guid: 507e190dbe681114da4039bc89f6ace3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -74
+      objectReference: {fileID: 0}
     - target: {fileID: 5497874176799042761, guid: 507e190dbe681114da4039bc89f6ace3, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6021,6 +6025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cutsceneCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6014926048101066442, guid: 085d5bd089b39fe429557f0e0c91b00b, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6014926048101066444, guid: 085d5bd089b39fe429557f0e0c91b00b, type: 3}
       propertyPath: dialogues.Array.data[0]
       value: '
@@ -6058,6 +6066,10 @@ PrefabInstance:
 
         And so the son who had never been to the market by himself
         began his journey to buy food for the family''s dinner.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014926048101066445, guid: 085d5bd089b39fe429557f0e0c91b00b, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 085d5bd089b39fe429557f0e0c91b00b, type: 3}
@@ -6368,7 +6380,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: If you don't complete the mission within the time limit, you lose!
+  m_text: If you don't complete the mission, you lose!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
